@@ -1,7 +1,11 @@
 import "./App.css";
 
 function App() {
-  return <div className="App">DST APP</div>;
+  return (
+    <div className="App">
+      <h1 className="text-3xl font-bold underline"> DST APP</h1>
+    </div>
+  );
 }
 
 export default App;
