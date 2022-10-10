@@ -1,9 +1,11 @@
 import "./App.css";
+import "./index.css";
+import DashboardComponent from "./components/DashboardComponent";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline"> DST APP</h1>
+    <div className="bg-[#ECE2D0]">
+      <DashboardComponent />
     </div>
   );
 }
