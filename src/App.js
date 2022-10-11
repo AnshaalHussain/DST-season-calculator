@@ -4,7 +4,7 @@ import DashboardComponent from "./components/DashboardComponent";
 
 function App() {
   return (
-    <div className="bg-[#ECE2D0]">
+    <div>
       <DashboardComponent />
     </div>
   );
