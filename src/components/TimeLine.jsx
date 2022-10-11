@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useTimer } from "react-timer-hook";
+import LastDefeated from "./LastDefeated";
 
 const TimeLine = ({ icon, spawnDayInput, defaultDay, currentDayInput }) => {
   const [currentYear, setCurrentYear] = useState(1);
   const [spawnDay, setSpawnDay] = useState(spawnDayInput);
+  const [lastDefeated, setLastDefeated] = useState();
 
   // calculate days left
   if (parseInt(currentDayInput) > parseInt(spawnDay)) {
@@ -48,10 +50,14 @@ const TimeLine = ({ icon, spawnDayInput, defaultDay, currentDayInput }) => {
   return (
     <div className="wrapper bg-[#6D2E46] p-8 rounded-[22px] border-2 border-black justify-center items-center w-full max-w-md">
       <div className="grid grid-cols-2 gap-6">
-        <img
-          className="image-wrapper bg-[#D9D9D9] rounded-[12px] border-4 border-black"
-          src={icon}
-        />
+        <div className="grid grid-row-2">
+          <img
+            className="image-wrapper bg-[#D9D9D9] rounded-[12px] border-4 border-black"
+            src={icon}
+          />
+          <LastDefeated />
+        </div>
+
         <div className="data-wrapper grid text-[#CEBEBE] text-xl text-left">
           <p>time remaining</p>
           <p className="text-5xl">
