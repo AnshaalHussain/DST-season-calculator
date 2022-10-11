@@ -9,7 +9,7 @@ const DashboardComponent = () => {
   return (
     <div className="">
       <p className="text-2xl font-bold">DST BOSS TIMER CALCULATOR</p>
-      <TimeLine icon={mooseGooseIcon} />
+      <TimeLine icon={mooseGooseIcon} defaultDay={36} currentDay={1} />
       {/* <TimeLine icon={deerClopsIcon} />
       <TimeLine icon={bearIcon} />
       <TimeLine icon={flyIcon} /> */}

@@ -1,9 +1,14 @@
 import { useTimer } from "react-timer-hook";
 
-const TimeLine = ({ icon, daysLeft, spawnDay }) => {
+const TimeLine = ({ icon, spawnDay, defaultDay, currentDay }) => {
+  // case: current day is below 36
+  let daysLeft = defaultDay - currentDay;
+  let timeAmount = daysLeft * 8 * 60;
+
   const { seconds, minutes, hours } = useTimer({
-    expiryTimestamp: new Date().setSeconds(new Date().getSeconds() + 3600),
-    onExpire: () => alert("timer expired"),
+    expiryTimestamp: new Date().setSeconds(
+      new Date().getSeconds() + timeAmount
+    ),
   });
 
   return (
@@ -16,7 +21,9 @@ const TimeLine = ({ icon, daysLeft, spawnDay }) => {
         <div className="data-wrapper grid text-[#CEBEBE] text-xl text-left">
           <p>time remaining</p>
           <p className="text-5xl">
-            {hours || "00"}:{minutes || "00"}:{seconds || "00"}
+            {(hours < 10 ? "0" + hours : hours) || "00"}:
+            {(minutes < 10 ? "0" + minutes : minutes) || "00"}:
+            {(seconds < 10 ? "0" + seconds : seconds) || "00"}
           </p>
           <p>spawns on day</p>
           <p className="text-5xl">{spawnDay || "36"}</p>
