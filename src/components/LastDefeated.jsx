@@ -8,7 +8,7 @@ const LastDefeated = ({ lastDefeated, setLastDefeated }) => {
       <p className="text-lg font-bold text-[#CEBEBE]">Last Defeated</p>
       {editableTitle ? (
         <input
-          className="h-10 max-w-[30] border-2 bg-white border-black text-4xl text-center rounded-[12px]"
+          className="h-10 max-w-[30] border-1 bg-white border-black text-4xl text-center rounded-[12px]"
           value={lastDefeated}
           onChange={(e) => setLastDefeated(e.target.value)}
         />
