@@ -1,23 +1,34 @@
 import { useState } from "react";
 
 const LastDefeated = ({ lastDefeated, setLastDefeated }) => {
-  const [editableTitle, setEditableTitle] = useState(false);
+  const [editableDay, setEditableDay] = useState(false);
+  const [lastDefeatedInput, setLastDefeatedInput] = useState(0);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setLastDefeated(e.target.value);
+    }
+  };
 
   return (
-    <div className="currentday-wrapper text-left">
-      <p className="text-lg font-bold text-[#CEBEBE]">Last Defeated</p>
-      {editableTitle ? (
+    <div className="text-left">
+      <p className="text-base font-bold text-[#CEBEBE] p-2">Last Defeated</p>
+      {editableDay ? (
         <input
-          className="h-10 max-w-[30] border-1 bg-white border-black text-4xl text-center rounded-[12px]"
-          value={lastDefeated}
-          onChange={(e) => setLastDefeated(e.target.value)}
+          className="h-10 border-2 shadow appearance-none bg-gradient-to-b from-white via-white to-gray-300 border-black text-3xl text-center rounded focus:outline-none focus:shadow-outline w-full leading-tight"
+          value={lastDefeatedInput}
+          onKeyDown={handleKeyDown}
+          onChange={(e) => {
+            if (e === "") setLastDefeatedInput("");
+            setLastDefeatedInput(e.target.value);
+          }}
         />
       ) : (
         <div
-          className="h-10 max-w-[30] border-2 bg-white border-black text-4xl text-center rounded-[12px]"
-          onClick={() => setEditableTitle(!editableTitle)}
+          className="h-10 border-2 shadow appearance-none bg-gradient-to-b from-white via-white to-gray-300  border-black text-3xl text-center rounded focus:outline-none focus:shadow-outline w-full leading-tight"
+          onClick={() => setEditableDay(!editableDay)}
         >
-          {lastDefeated || null}
+          {lastDefeated}
         </div>
       )}
     </div>
